@@ -1,7 +1,5 @@
 import Nav from "./Nav";
 import Meta from "./Meta";
-import Header from "./Header";
-import styles from "../styles/Layout.module.css";
 import { ReactNode } from "react";
 
 interface LayoutProps {
@@ -13,11 +11,8 @@ const Layout = ({ children }: LayoutProps) => {
     <>
       <Meta />
       <Nav />
-      <div className={styles.container}>
-        <main className={styles.main}>
-          <Header />
-          {children}
-        </main>
+      <div className="pt-20">
+        <main className="">{children}</main>
       </div>
     </>
   );
