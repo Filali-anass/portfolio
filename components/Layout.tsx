@@ -1,7 +1,7 @@
 import Nav from "./Nav";
 import Meta from "./Meta";
 import { ReactNode } from "react";
-import AlertsProvider from "../providers/Alertsprovider";
+import AlertProvider from "../providers/AlertProvider";
 
 interface LayoutProps {
   children?: ReactNode;
@@ -13,9 +13,9 @@ const Layout = ({ children }: LayoutProps) => {
       <Meta />
       <Nav />
       <div className="pt-20">
-        <AlertsProvider>
+        <AlertProvider>
           <main className="">{children}</main>
-        </AlertsProvider>
+        </AlertProvider>
       </div>
     </>
   );
