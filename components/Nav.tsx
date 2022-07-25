@@ -65,20 +65,23 @@ const Nav = () => {
         </div>
       </div>
       <div
+        onClick={() => setNav(false)}
         className={
-          nav ? "md:hidden fixed left-0 top-0 w-full h-screen bg-black/70" : ""
+          nav
+            ? "md:hidden fixed left-0 top-0 w-full h-screen bg-black/40 ease-in duration-200"
+            : ""
         }
       >
         <div
           className={
             nav
-              ? "fixed left-0 top-0 w-[75%] sm:[60%] md:[45%] h-screen bg-[#ecf0f3] p-10 ease-in duration-500"
+              ? "fixed left-0 top-0 w-[75%] sm:[60%] md:[45%] h-screen bg-[#ecf0f3] p-10 ease-in duration-300"
               : "fixed left-[-100%] top-0 p-10 ease-in duration-500"
           }
         >
           <div>
             <div className="flex w-full items-center justify-between">
-              <Image src="/logo.png" alt="" width="80" height="80" />
+              <Image src="/assets/logo.png" alt="" width="80" height="80" />
               <div
                 onClick={handleNav}
                 className="rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer"
@@ -115,7 +118,7 @@ const Nav = () => {
                 </li>
               </Link>
             </ul>
-            <div className="pt-40">
+            <div className="pt-32">
               <p className="uppercase tracking-widest text-[#5651e5]">
                 {"Let's Connect"}
               </p>
