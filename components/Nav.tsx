@@ -3,20 +3,44 @@ import Link from "next/link";
 import { AiOutlineClose, AiOutlineMenu, AiOutlineMail } from "react-icons/ai";
 import { FaGithub, FaLinkedin, FaFacebook } from "react-icons/fa";
 import { BsPersonLinesFill } from "react-icons/bs";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { profil } from "../utils/data";
 
 const Nav = () => {
   const [nav, setNav] = useState<boolean>(false);
+  const [shadow, setShadow] = useState(false);
+
   const handleNav = () => {
     setNav(!nav);
   };
 
+  useEffect(() => {
+    const handleShadow = () => {
+      if (window.scrollY >= 90) {
+        setShadow(true);
+      } else {
+        setShadow(false);
+      }
+    };
+    window.addEventListener("scroll", handleShadow);
+  }, []);
+
   return (
-    <nav className="fixed w-full h-20 shadow-xl z-[100]">
+    <nav
+      className={
+        shadow
+          ? "fixed w-full h-20 shadow-xl z-[100] ease-in-out duration-300 bg-[#ecf0f3]"
+          : "fixed w-full h-20 z-[100] bg-[#ecf0f3]"
+      }
+    >
       <div className="flex justify-between items-center w-full h-full px-2 2x:px-16">
         <div className="flex justify-center items-center">
-          <Image src="/assets/logo.png" alt="" width="80" height="80" />
-          <p className="px-4 uppercase">Anass Filali</p>
+          <Link href="/">
+            <a className="flex justify-center items-center">
+              <Image src="/assets/logo.png" alt="" width="80" height="80" />
+              <p className="px-4 uppercase">Anass Filali</p>
+            </a>
+          </Link>
         </div>
         <div>
           <ul className="hidden md:flex">
@@ -26,15 +50,10 @@ const Nav = () => {
             <Link href="/#about">
               <li className="ml-10 text-sm uppercase hover:border-b">About</li>
             </Link>
-            <Link href="/">
+            <Link href="/#skills">
               <li className="ml-10 text-sm uppercase hover:border-b">Skills</li>
             </Link>
-            <Link href="/">
-              <li className="ml-10 text-sm uppercase hover:border-b">
-                Projects
-              </li>
-            </Link>
-            <Link href="/">
+            <Link href="/#contact">
               <li className="ml-10 text-sm uppercase hover:border-b">
                 Contact
               </li>
@@ -76,19 +95,24 @@ const Nav = () => {
           <div className="py-4 flex flex-col">
             <ul className="uppercase">
               <Link href="/">
-                <li className="py-4 text-sm">Home</li>
+                <li onClick={() => setNav(false)} className="py-4 text-sm">
+                  Home
+                </li>
               </Link>
               <Link href="/#about">
-                <li className="py-4 text-sm">About</li>
+                <li onClick={() => setNav(false)} className="py-4 text-sm">
+                  About
+                </li>
               </Link>
-              <Link href="/">
-                <li className="py-4 text-sm">Skills</li>
+              <Link href="/#skills">
+                <li onClick={() => setNav(false)} className="py-4 text-sm">
+                  Skills
+                </li>
               </Link>
-              <Link href="/">
-                <li className="py-4 text-sm">Projects</li>
-              </Link>
-              <Link href="/">
-                <li className="py-4 text-sm">Contact</li>
+              <Link href="/#contact">
+                <li onClick={() => setNav(false)} className="py-4 text-sm">
+                  Contact
+                </li>
               </Link>
             </ul>
             <div className="pt-40">
@@ -97,7 +121,7 @@ const Nav = () => {
               </p>
               <div className="flex items-center justify-between my-4 w-full sm:w-[80%]">
                 <a
-                  href="https://www.linkedin.com/in/anass-filali/"
+                  href={profil.linkedinProfil}
                   target="_blank"
                   rel="noreferrer"
                 >
@@ -105,20 +129,26 @@ const Nav = () => {
                     <FaLinkedin />
                   </div>
                 </a>
-                <a
-                  href="https://github.com/Filali-anass"
-                  target="_blank"
-                  rel="noreferrer"
-                >
+                <a href={profil.githubProfil} target="_blank" rel="noreferrer">
                   <div className="rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer hover:scale-105 ease-in duration-300">
                     <FaGithub />
                   </div>
                 </a>
-                <div className="rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer hover:scale-105 ease-in duration-300">
-                  <BsPersonLinesFill />
+                <div
+                  onClick={() => setNav(false)}
+                  className="rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer hover:scale-105 ease-in duration-300"
+                >
+                  <Link href="/resume">
+                    <BsPersonLinesFill />
+                  </Link>
                 </div>
-                <div className="rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer hover:scale-105 ease-in duration-300">
-                  <AiOutlineMail />
+                <div
+                  onClick={() => setNav(false)}
+                  className="rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer hover:scale-105 ease-in duration-300"
+                >
+                  <Link href="/#contact">
+                    <AiOutlineMail />
+                  </Link>
                 </div>
               </div>
             </div>
