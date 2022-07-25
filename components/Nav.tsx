@@ -60,7 +60,7 @@ const Nav = () => {
             </Link>
           </ul>
         </div>
-        <div onClick={handleNav} className="md:hidden">
+        <div onClick={handleNav} className="p-4 md:hidden cursor-pointer">
           <AiOutlineMenu size={25} />
         </div>
       </div>
@@ -68,15 +68,15 @@ const Nav = () => {
         onClick={() => setNav(false)}
         className={
           nav
-            ? "md:hidden fixed left-0 top-0 w-full h-screen bg-black/40 ease-in duration-200"
+            ? "md:hidden fixed right-0 top-0 w-full h-screen bg-black/40 ease-in-out duration-300"
             : ""
         }
       >
         <div
           className={
             nav
-              ? "fixed left-0 top-0 w-[75%] sm:[60%] md:[45%] h-screen bg-[#ecf0f3] p-10 ease-in duration-300"
-              : "fixed left-[-100%] top-0 p-10 ease-in duration-500"
+              ? "fixed right-0 top-0 w-[75%] sm:[60%] md:[45%] h-screen bg-[#ecf0f3] p-10 ease-in-out duration-300"
+              : "fixed right-[-100%] top-0 h-screen bg-[#ecf0f3] p-10 ease-in-out duration-300"
           }
         >
           <div>
