@@ -5,15 +5,14 @@ import { AiOutlineMail } from "react-icons/ai";
 import { BsFillPersonLinesFill } from "react-icons/bs";
 import { FaGithub, FaLinkedinIn } from "react-icons/fa";
 import { HiOutlineChevronDoubleUp } from "react-icons/hi";
+
 import ContactImg from "../public/assets/contact.jpg";
-import { profil } from "../utils/data";
+import { profil } from "../lib/data";
+import useAlertsStore from "../store/alertsStore";
 
 const Contact = () => {
-  const [name, setName] = useState("");
-  const [phone, setPhone] = useState("");
-  const [email, setEmail] = useState("");
-  const [subject, setSubject] = useState("");
-  const [message, setMessage] = useState("");
+  const { showAlert } = useAlertsStore();
+
   const [query, setQuery] = useState({
     name: "",
     phone: "",
@@ -21,13 +20,6 @@ const Contact = () => {
     subject: "",
     message: "",
   });
-  const handleSubmit = () => {
-    setName("");
-    setPhone("");
-    setEmail("");
-    setSubject("");
-    setMessage("");
-  };
 
   // Update inputs value
   const handleParam = (
@@ -50,9 +42,13 @@ const Contact = () => {
     fetch("https://getform.io/f/62c0b7ad-b6be-4c90-af95-3df0de6fc114", {
       method: "POST",
       body: formData,
-    }).then(() =>
-      setQuery({ name: "", email: "", message: "", phone: "", subject: "" })
-    );
+    }).then(() => {
+      showAlert({
+        title: `thank you ${query.name} for reaching out`,
+        message: "Your message was sent successfully",
+      });
+      setQuery({ name: "", email: "", message: "", phone: "", subject: "" });
+    });
   };
 
   return (

@@ -7,7 +7,7 @@ interface AlertProps {
 
 export default function Alert({ title, message }: AlertProps) {
   return (
-    <div className="fixed p-4 flex w-full justify-end z-10">
+    <div className="p-1 flex w-full justify-end ease-in duration-500">
       <div className="bg-green-100 rounded-md p-3 flex ">
         <svg
           className="stroke-2 stroke-current text-green-600 h-8 w-8 mr-2 flex-shrink-0"

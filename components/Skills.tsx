@@ -1,5 +1,5 @@
 import React from "react";
-import { skillSet } from "../utils/data";
+import { skillSet } from "../lib/data";
 import SkillItem from "./SkillItem";
 
 function Skills() {

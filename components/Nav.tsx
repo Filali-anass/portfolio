@@ -4,7 +4,7 @@ import { AiOutlineClose, AiOutlineMenu, AiOutlineMail } from "react-icons/ai";
 import { FaGithub, FaLinkedin, FaFacebook } from "react-icons/fa";
 import { BsPersonLinesFill } from "react-icons/bs";
 import { useEffect, useState } from "react";
-import { profil } from "../utils/data";
+import { profil } from "../lib/data";
 
 const Nav = () => {
   const [nav, setNav] = useState<boolean>(false);

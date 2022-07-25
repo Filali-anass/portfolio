@@ -3,7 +3,7 @@ import Head from "next/head";
 import { FaGithub, FaLinkedinIn } from "react-icons/fa";
 import { title } from "process";
 import Meta from "../components/Meta";
-import { experienceHistory, profil, skills } from "../utils/data";
+import { experienceHistory, profil, skills } from "../lib/data";
 
 const resume = () => {
   return (
