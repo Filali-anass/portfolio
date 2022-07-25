@@ -1,5 +1,4 @@
 import create from "zustand";
-import { v4 as uuidv4 } from "uuid";
 import Alert from "../components/Alert";
 
 interface Alert {
@@ -16,7 +15,9 @@ interface AlertsState {
 const useAlertsStore = create<AlertsState>((set, get) => ({
   alerts: [],
   showAlert: (alert: Alert) => {
-    const id = uuidv4();
+    const id = `${Math.floor(
+      Math.random() * (999999999 - 111111111 + 1) + 111111111
+    )}`;
     set((state) => ({
       alerts: [...state.alerts, { ...alert, id }],
     }));
