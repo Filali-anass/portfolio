@@ -16,4 +16,4 @@ jobs:
         run: yarn ci:lint
 
       - name: Test Code with JEST
-        run: yarn ci:jest
+        run: yarn ci:test
