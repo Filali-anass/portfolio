@@ -7,7 +7,7 @@
     "start": "next start",
     "lint": "next lint --fix",
     "ci:lint": "next lint --fix",
-    "test": "jest --coverage --watch",
+    "test": "jest --coverage  --watchAll --no-cache",
     "ci:test": "env NODE_ENV=test jest --ci"
   },
   "dependencies": {

@@ -4,10 +4,8 @@ const createJestConfig = nextJest({ dir: "." });
 
 const customJestConfig = {
   testEnvironment: "jsdom",
-  clearMocks: true,
-  moduleDirectories: ["node_modules", __dirname],
+  moduleDirectories: ["node_modules"],
   setupFilesAfterEnv: ["<rootDir>/setupTests.ts"],
-  transformIgnorePatterns: ["/node_modules/(?!vue-awesome)"],
 };
 
 module.exports = createJestConfig(customJestConfig);
