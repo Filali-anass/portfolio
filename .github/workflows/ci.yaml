@@ -1,19 +1,28 @@
 name: CI
 on: [push]
 jobs:
-  eslint:
-    name: Github Actions Test
+  install-and-test:
+    name: CI Pipline
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
+      - name: Checkout
+        uses: actions/checkout@v3
 
-      - name: Install packages
+      - name: Setup Node
+        uses: actions/setup-node@v3
+
+      - name: Install Node modules
         run: yarn
 
-      - name: Lint Code
+      - name: Linting
         run: yarn ci:lint
 
-      - name: Test Code with JEST
+      - name: Unit tests
         run: yarn ci:test
+
+      - name: Jest coverage report
+        uses: ArtiomTr/jest-coverage-report-action@v2.0.6
+        with:
+          coverage-file: ./jest-report.json
+          base-coverage-file: ./jest-report.json
