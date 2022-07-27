@@ -2,7 +2,7 @@ name: CI
 on: [push]
 jobs:
   eslint:
-    name: Lint code base
+    name: Github Actions Test
     runs-on: ubuntu-latest
 
     steps:
@@ -10,7 +10,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Install packages
-        run: npm ci
+        run: yarn
 
-      - name: Run ESlint
+      - name: Print Node Version
         run: node -v
