@@ -12,5 +12,8 @@ jobs:
       - name: Install packages
         run: yarn
 
-      - name: Print Node Version
-        run: node -v
+      - name: Lint Code
+        run: yarn ci:lint
+
+      - name: Test Code with JEST
+        run: yarn ci:jest

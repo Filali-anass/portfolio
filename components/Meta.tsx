@@ -1,11 +1,11 @@
-import Head from "next/head";
+import Head from 'next/head';
 
 interface MetaProps {
   title: string;
   keywords: string;
   description: string;
 }
-const Meta = ({ title, keywords, description }: MetaProps) => {
+function Meta({ title, keywords, description }: MetaProps) {
   return (
     <Head>
       <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -16,13 +16,13 @@ const Meta = ({ title, keywords, description }: MetaProps) => {
       <title>{title}</title>
     </Head>
   );
-};
+}
 
 Meta.defaultProps = {
-  title: "Anass Filali",
+  title: 'Anass Filali',
   keywords:
-    "web development, programming, mobile development, React, NextJs, react native,",
-  description: "The latest web and mobile development",
+    'web development, programming, mobile development, React, NextJs, react native,',
+  description: 'The latest web and mobile development',
 };
 
 export default Meta;

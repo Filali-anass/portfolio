@@ -1,31 +1,31 @@
-import Image from "next/image";
-import Link from "next/link";
-import React, { ChangeEvent, useState } from "react";
-import { AiOutlineMail } from "react-icons/ai";
-import { BsFillPersonLinesFill } from "react-icons/bs";
-import { FaGithub, FaLinkedinIn } from "react-icons/fa";
-import { HiOutlineChevronDoubleUp } from "react-icons/hi";
+import Image from 'next/image';
+import Link from 'next/link';
+import React, { ChangeEvent, useState } from 'react';
+import { AiOutlineMail } from 'react-icons/ai';
+import { BsFillPersonLinesFill } from 'react-icons/bs';
+import { FaGithub, FaLinkedinIn } from 'react-icons/fa';
+import { HiOutlineChevronDoubleUp } from 'react-icons/hi';
 
-import ContactImg from "../public/assets/contact.jpg";
-import { profil } from "../lib/data";
-import useAlertsStore from "../store/alertsStore";
+import ContactImg from '../public/assets/contact.jpg';
+import { profil } from '../lib/data';
+import useAlertsStore from '../store/alertsStore';
 
-const Contact = () => {
+function Contact() {
   const { showAlert } = useAlertsStore();
 
   const [query, setQuery] = useState({
-    name: "",
-    phone: "",
-    email: "",
-    message: "",
+    name: '',
+    phone: '',
+    email: '',
+    message: '',
   });
 
   // Update inputs value
   const handleParam = (
-    e: ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLTextAreaElement>
+    e: ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLTextAreaElement>,
   ) => {
-    const name = e.target.name;
-    const value = e.target.value;
+    const { name } = e.target;
+    const { value } = e.target;
     setQuery((prevState) => ({
       ...prevState,
       [name]: value,
@@ -38,15 +38,17 @@ const Contact = () => {
     Object.entries(query).forEach(([key, value]) => {
       formData.append(key, value);
     });
-    fetch("https://getform.io/f/62c0b7ad-b6be-4c90-af95-3df0de6fc114", {
-      method: "POST",
+    fetch('https://getform.io/f/62c0b7ad-b6be-4c90-af95-3df0de6fc114', {
+      method: 'POST',
       body: formData,
     }).then(() => {
       showAlert({
         title: `thank you ${query.name} for reaching out`,
-        message: "Your message was sent successfully",
+        message: 'Your message was sent successfully',
       });
-      setQuery({ name: "", email: "", message: "", phone: "" });
+      setQuery({
+        name: '', email: '', message: '', phone: '',
+      });
     });
   };
 
@@ -179,7 +181,7 @@ const Contact = () => {
                     value={query.message}
                     required
                     onChange={(e) => handleParam(e)}
-                  ></textarea>
+                  />
                 </div>
                 <button
                   data-testid="btn-submit"
@@ -206,6 +208,6 @@ const Contact = () => {
       </div>
     </div>
   );
-};
+}
 
 export default Contact;

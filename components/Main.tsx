@@ -1,10 +1,10 @@
-import Link from "next/link";
-import React from "react";
-import { AiOutlineMail } from "react-icons/ai";
-import { BsFillPersonLinesFill } from "react-icons/bs";
-import { FaGithub, FaLinkedinIn } from "react-icons/fa";
+import Link from 'next/link';
+import React from 'react';
+import { AiOutlineMail } from 'react-icons/ai';
+import { BsFillPersonLinesFill } from 'react-icons/bs';
+import { FaGithub, FaLinkedinIn } from 'react-icons/fa';
 
-const Main = () => {
+function Main() {
   return (
     <div id="home" className="w-full h-screen text-center">
       <div className="max-w-[1240px] w-full h-full mx-auto p-2 flex justify-center items-center">
@@ -13,7 +13,9 @@ const Main = () => {
             LET&#39;S BUILD SOMETHING TOGETHER
           </p>
           <h1 className="py-4 text-gray-700">
-            Hi, I&#39;m <span className="text-[#5651e5]"> Anass</span>
+            Hi, I&#39;m
+            {' '}
+            <span className="text-[#5651e5]"> Anass</span>
           </h1>
           <h1 className="py-2 text-gray-700">
             A FullStack Javascript Developer
@@ -56,6 +58,6 @@ const Main = () => {
       </div>
     </div>
   );
-};
+}
 
 export default Main;

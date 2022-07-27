@@ -1,12 +1,12 @@
-import Image from "next/image";
-import Link from "next/link";
-import { AiOutlineClose, AiOutlineMenu, AiOutlineMail } from "react-icons/ai";
-import { FaGithub, FaLinkedin, FaFacebook } from "react-icons/fa";
-import { BsPersonLinesFill } from "react-icons/bs";
-import { useEffect, useState } from "react";
-import { profil } from "../lib/data";
+import React, { useEffect, useState } from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
+import { AiOutlineClose, AiOutlineMenu, AiOutlineMail } from 'react-icons/ai';
+import { FaGithub, FaLinkedin } from 'react-icons/fa';
+import { BsPersonLinesFill } from 'react-icons/bs';
+import { profil } from '../lib/data';
 
-const Nav = () => {
+function Nav() {
   const [nav, setNav] = useState<boolean>(false);
   const [shadow, setShadow] = useState(false);
 
@@ -22,15 +22,15 @@ const Nav = () => {
         setShadow(false);
       }
     };
-    window.addEventListener("scroll", handleShadow);
+    window.addEventListener('scroll', handleShadow);
   }, []);
 
   return (
     <nav
       className={
         shadow
-          ? "fixed w-full h-20 shadow-xl z-[100] ease-in-out duration-300 bg-[#ecf0f3]"
-          : "fixed w-full h-20 z-[100] bg-[#ecf0f3]"
+          ? 'fixed w-full h-20 shadow-xl z-[100] ease-in-out duration-300 bg-[#ecf0f3]'
+          : 'fixed w-full h-20 z-[100] bg-[#ecf0f3]'
       }
     >
       <div className="flex justify-between items-center w-full h-full px-2 2x:px-16">
@@ -74,15 +74,15 @@ const Nav = () => {
         onClick={() => setNav(false)}
         className={
           nav
-            ? "md:hidden fixed right-0 top-0 w-full h-screen bg-black/40 ease-in-out duration-300"
-            : ""
+            ? 'md:hidden fixed right-0 top-0 w-full h-screen bg-black/40 ease-in-out duration-300'
+            : ''
         }
       >
         <div
           className={
             nav
-              ? "fixed right-0 top-0 w-[75%] sm:[60%] md:[45%] h-screen bg-[#ecf0f3] p-10 ease-in-out duration-300"
-              : "fixed right-[-100%] top-0 h-screen bg-[#ecf0f3] p-10 ease-in-out duration-300"
+              ? 'fixed right-0 top-0 w-[75%] sm:[60%] md:[45%] h-screen bg-[#ecf0f3] p-10 ease-in-out duration-300'
+              : 'fixed right-[-100%] top-0 h-screen bg-[#ecf0f3] p-10 ease-in-out duration-300'
           }
         >
           <div>
@@ -166,6 +166,6 @@ const Nav = () => {
       </div>
     </nav>
   );
-};
+}
 
 export default Nav;

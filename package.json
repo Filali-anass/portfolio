@@ -5,8 +5,10 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
-    "test": "env NODE_ENV=test jest --ci"
+    "lint": "next lint --fix",
+    "ci:lint": "next lint --fix",
+    "test": "jest --coverage --watch",
+    "ci:test": "env NODE_ENV=test jest --ci"
   },
   "dependencies": {
     "next": "12.2.3",
@@ -25,7 +27,10 @@
     "@types/react-dom": "18.0.6",
     "autoprefixer": "^10.4.7",
     "eslint": "8.20.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-airbnb-base": "^15.0.0",
     "eslint-config-next": "12.2.3",
+    "eslint-config-prettier": "^8.5.0",
     "jest": "^28.1.3",
     "jest-environment-jsdom": "^28.1.3",
     "postcss": "^8.4.14",

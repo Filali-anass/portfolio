@@ -1,6 +1,6 @@
-import React from "react";
-import { skillSet } from "../lib/data";
-import SkillItem from "./SkillItem";
+import React from 'react';
+import { skillSet } from '../lib/data';
+import SkillItem from './SkillItem';
 
 function Skills() {
   return (
