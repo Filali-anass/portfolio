@@ -16,11 +16,13 @@ const About = () => {
           <p className="py-2 text-gray-600">
             I love creating web and mobile apps.
           </p>
-          <Link href="/#projects">
-            <p className="py-2 text-gray-600 underline cursor-pointer">
-              Check out some of my latest projects.
-            </p>
-          </Link>
+          <p className="py-2 text-gray-600">
+            I’m constantly learning new technologies.
+          </p>
+          <p className="py-2 text-gray-600">
+            &ldquo; Languages and Frameworks are just tools, Software
+            development is an industry, an art and a lifestyle &rdquo;
+          </p>
         </div>
         <div className="w-full h-auto m-auto shadow-xl shadow-gray-400 rounded-xl flex items-center justify-center p-4 hover:scale-105 ease-in duration-300">
           <Image src={AboutImg} className="rounded-xl" alt="/" />

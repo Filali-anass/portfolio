@@ -10,7 +10,7 @@ it("allows me to submit a messsage", () => {
   userEvent.type(screen.getByLabelText(/email/i), "test@gmail.com");
   userEvent.type(screen.getByLabelText(/phone/i), "0677889900");
   userEvent.type(
-    screen.getByLabelText(/messages/i),
+    screen.getByLabelText(/message/i),
     "Hello We should work together"
   );
 

@@ -6,15 +6,15 @@ interface AlertsProviderProps {
   children?: ReactNode;
 }
 
-export async function getServerSideProps() {
-  useAlertsStore.getState().rehydrate();
+// export async function getServerSideProps() {
+//   useAlertsStore.getState().rehydrate();
 
-  return {
-    props: {
-      alerts: useAlertsStore.getState().alerts,
-    },
-  };
-}
+//   return {
+//     props: {
+//       alerts: useAlertsStore.getState().alerts,
+//     },
+//   };
+// }
 
 const AlertsProvider = ({ children }: AlertsProviderProps) => {
   const { alerts } = useAlertsStore();
