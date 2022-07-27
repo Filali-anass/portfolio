@@ -1,5 +1,4 @@
 import create from "zustand";
-import Alert from "../components/Alert";
 
 interface Alert {
   id?: string;
@@ -8,11 +7,12 @@ interface Alert {
 }
 interface AlertsState {
   alerts: Array<Alert>;
+  // eslint-disable-next-line no-unused-vars
   showAlert: (alert: Alert) => void;
   rehydrate: () => void;
 }
 
-const useAlertsStore = create<AlertsState>((set, get) => ({
+const useAlertsStore = create<AlertsState>((set) => ({
   alerts: [],
   showAlert: (alert: Alert) => {
     const id = `${Math.floor(
@@ -24,7 +24,7 @@ const useAlertsStore = create<AlertsState>((set, get) => ({
     setTimeout(
       () =>
         set((state) => ({
-          alerts: state.alerts.filter((alert) => alert.id !== id),
+          alerts: state.alerts.filter((_alert) => _alert.id !== id),
         })),
       3000
     );
