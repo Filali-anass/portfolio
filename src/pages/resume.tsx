@@ -76,7 +76,7 @@ const resume = () => (
                 {location}
               </h2>
               <p className="py-1 italic">
-                {description} ({from} -{to})
+                {description} ({from} - {to})
               </p>
               <div className="p-3">
                 {projects.map(({ missions, title, description }) => (

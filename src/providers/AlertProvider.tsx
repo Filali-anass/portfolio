@@ -1,20 +1,10 @@
-import React, { ReactNode, useEffect } from "react";
+import React, { ReactNode } from "react";
 import Alert from "../components/Alert";
 import useAlertsStore from "../store/alertsStore";
 
 interface AlertsProviderProps {
   children?: ReactNode;
 }
-
-// export async function getServerSideProps() {
-//   useAlertsStore.getState().rehydrate();
-
-//   return {
-//     props: {
-//       alerts: useAlertsStore.getState().alerts,
-//     },
-//   };
-// }
 
 const AlertsProvider = ({ children }: AlertsProviderProps) => {
   const { alerts } = useAlertsStore();
