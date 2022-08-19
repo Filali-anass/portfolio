@@ -45,11 +45,7 @@ async function generate() {
     ...prettierConfig,
     parser: 'html',
   })
-  fs.writeFile('public/sitemap.xml', formatted, { flag: 'wx' }, function (err) {
-    if (err) throw err
-    console.log("It's saved!")
-  })
-  // writeFileSync('public/sitemap.xml', formatted)
+  writeFileSync('./public/sitemap.xml', formatted)
 }
 
 generate()
