@@ -45,7 +45,10 @@ async function generate() {
     ...prettierConfig,
     parser: 'html',
   })
-  writeFileSync('./public/sitemap.xml', formatted)
+  fs.mkdir('./public', { recursive: true }, (err) => {
+    if (err) throw err
+    writeFileSync('./public/sitemap.xml', formatted)
+  })
 }
 
 generate()
