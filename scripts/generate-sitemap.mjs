@@ -1,4 +1,4 @@
-import { writeFileSync } from 'fs'
+import fs, { writeFileSync } from 'fs'
 import globby from 'globby'
 import prettier from 'prettier'
 import siteMetadata from '../data/siteMetadata.js'
@@ -45,8 +45,11 @@ async function generate() {
     ...prettierConfig,
     parser: 'html',
   })
-
-  writeFileSync('public/sitemap.xml', formatted)
+  fs.writeFile('public/sitemap.xml', formatted, { flag: 'wx' }, function (err) {
+    if (err) throw err
+    console.log("It's saved!")
+  })
+  // writeFileSync('public/sitemap.xml', formatted)
 }
 
 generate()
